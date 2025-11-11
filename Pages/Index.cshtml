@@ -1,0 +1,77 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome  to Fusion Worldwide</h1>
+    <p><a>Part List Report</a></p>
+</div>
+<div>
+    <form method= "post">
+        <input type="submit" value="Load Report" />
+    </form>
+</div>
+<br/>
+
+
+<dev>
+    @if(Model.PriceLists.Any())
+    {
+        int n_Count = 0;
+        double d_TotalPrice = 0;
+        double d_budgetCheck = 1800.00;
+        <p> Price sorted by decending</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>CategoryType</th>
+                    <th>Name</th>
+                    <th>Price ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.PriceLists)
+                {
+                    n_Count++;
+                    if (@item.CategoryType.Contains("CPU"))
+                    {
+                        <tr>
+                        <td> @n_Count</td>
+                        <td> <strong> @item.CategoryType </strong></td>
+                        <td> @item.Name</td>
+                        <td> @item.Price</td>
+                    </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                        <td> @n_Count</td>
+                        <td> @item.CategoryType</td>
+                        <td> @item.Name</td>
+                        <td> @item.Price</td>
+                        </tr>
+                  
+                    }
+                    d_TotalPrice = d_TotalPrice + Convert.ToDouble(@item.Price);
+                }
+                
+            </tbody>
+        </table>
+        <dev>
+            <P> (<strong>@n_Count</strong>) item of Total Price : <strong> $@d_TotalPrice </strong></P>
+        </dev>
+        if (@d_TotalPrice > @d_budgetCheck)
+        {
+            double d_OverBudget = @d_TotalPrice - @d_budgetCheck;
+            <dev>
+                <p> Over budget by<strong> $@d_OverBudget</strong> </p>
+            </dev>
+        }
+        
+    }
+</dev>
+

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pmysKQhbmffc7keDxfxOdkV7IKyvH4iVVftOUoEKhpWpH8dOBQC3m9pCDv/UXAEj55GDd65lUWO4D0pF/JcPDQ==",
+  "success": true,
+  "projectFilePath": "D:\\Fusion\\fusionPriceList\\fusionPriceList.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aungs\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
