@@ -1,4 +1,5 @@
 1) How to run App
+..\bin\Debug\net7.0\
 dotnet run or double click fusionPriceList.exe
 Then visit: http://localhost:5000
 
