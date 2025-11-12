@@ -6,6 +6,8 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.Json;
+
 //
 namespace fusionPriceList.Pages
 {
@@ -47,9 +49,16 @@ namespace fusionPriceList.Pages
             {
                 string result = await respond.Content.ReadAsStringAsync();
                 JObject obj = JObject.Parse(result);
+
+                //JSON Parse to deserialize 
                 //List<PriceList> items = JsonConvert.DeserializeObject<List<PriceList>>(result);
                 //PriceList    PartItems = await JsonSerializer.Deserialize<PriceList>(result);
                 //List<PriceList> items = JsonConvert.DeserializeObject<List<PriceList>>(result);
+                //var json = await respond.Content.ReadAsStringAsync();
+
+                //PriceLists = JsonSerializer.Deserialize.Deserialize<List<Part>>(json,
+                //   new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
+                //var s_PriceLists = JsonConvert.DeserializeObject<List<PriceList>>(result);
 
                 PriceList pList = new PriceList();
                 string[] part1 = result.Split('[');
